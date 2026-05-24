@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        padding: 10px 150px;
+        border: 1px solid rgb(234, 234, 234);
+        box-shadow: 1px 1px 5px rgb(235, 235, 235);
+      }
+      ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        list-style-type: none;
+        font-size: 20px;
+        color: rgb(27, 27, 27);
+      }
+      .register-btn {
+        padding: 8px 16px;
+        background-color: rgb(255, 111, 28);
+        color: white;
+        border: none;
+        border-radius: 6px;
+      }
+      .register-btn:active {
+        scale: 0.97;
+        transition: all 0.2s;
+      }
+      .register-btn:hover {
+        background-color: rgb(249, 100, 13);
+        transition: all 0.2s;
+        cursor: pointer;
+      }
+      a {
+        color: rgb(36, 36, 36);
+        text-decoration: none;
+      }
+      a:hover {
+        color: rgb(255, 111, 28);
+        transition: all 0.2s;
+      }
+      .img-logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+      .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+      .card {
+        width: 300px;
+        margin: 5px;
+
+        border-radius: 10px;
+        /* height: 500px; */
+        position: relative;
+        box-shadow: 1px 1px 5px rgb(222, 222, 222);
+      }
+      .img-pro {
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+      }
+      span {
+        border: 1px solid gray;
+        padding: 1px 2px;
+        border-radius: 2px;
+      }
+      .card-body {
+        padding: 10px;
+        border-radius: 10px;
+        position: absolute;
+        background-color: white;
+        top: 190px;
+        box-shadow: 1px 1px 5px rgb(222, 222, 222);
+      }
+      .card-des {
+        margin-top: 20px;
+        font-size: 16px;
+        color: rgb(60, 60, 60);
+      }
+      .btn-buttom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+      }
+      .card-btn {
+        padding: 10px 20px;
+        background-color: rgb(130, 88, 165);
+        border: none;
+        border-radius: 6px;
+        color: white;
+        font-weight: bold;
+      }
+      .heart{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        right: 10px;
+        padding: 7px;
+        border-radius: 50%;
+        background-color: gray;
+        top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          class="img-logo"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR8HLMQmGdh8cei-f0pqtYI1FVCZhrNuF1Jw&s"
+          alt=""
+        />
+        <h3>One Piece</h3>
+      </div>
+
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Product</a></li>
+        <li><a href="About">About</a></li>
+        <li><a href="Contact">Contact</a></li>
+      </ul>
+
+      <div class="btn">
+        <button class="register-btn">Register</button>
+      </div>
+    </header>
+
+    <div class="card">
+      <div class="heart">
+        <img width="100%"
+          src="https://img.icons8.com/?size=100&id=87&format=png&color=000000"
+          alt=""
+        />
+      </div>
+      <div class="img-cont">
+        <img
+          class="img-pro"
+          src="https://jdsports.ca/cdn/shop/files/ae3b833e9e84.jpg?v=1753129794&width=540"
+          alt=""
+        />
+      </div>
+      <div class="card-body">
+        <h3>Nike Running Shoes</h3>
+        <div style="margin-top: 10px">
+          <span>EU38</span>
+          <span>BLACK/WHITE</span>
+        </div>
+        <p class="card-des">
+          Lorem ipsum dolor sit amet con, temporibus aliquid sunt a assumenda,
+          voluptatum natus unde nesciunt?
+        </p>
+        <div class="btn-buttom">
+          <div>
+            <p style="font-weight: bold; color: rgb(48, 48, 48)">PRICE</p>
+            <p
+              style="font-size: 30px; font-weight: bold; color: rgb(48, 48, 48)"
+            >
+              69.65$
+            </p>
+          </div>
+          <button class="card-btn">Add to card</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

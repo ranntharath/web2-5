@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.section{
+    width: 100vw;
+    height: 100vh;
+    padding-top: 200px;
+}
+.hiro{
+    background-image: url("https://thumbs.dreamstime.com/b/enchanted-forest-path-serene-green-nature-background-relaxation-eco-projects-vibrant-hues-soft-light-ideal-related-377056802.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+h1{
+    font-size: 100px;
+    color: white; 
+    text-align: center;
+}
+.text{
+    background-color: aqua;
+}

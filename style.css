@@ -1,0 +1,32 @@
+/* external style */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.card {
+  width: 200px;
+  margin: 200px;
+  background-color: rgb(247, 247, 247);
+  border-radius: 8px;
+  border: 1px solid rgb(214, 214, 214);
+  padding: 8px;
+}
+.inside-box {
+  height: 100px;
+  background-color: gray;
+  border-radius: 8px;
+}
+.card-body {
+  margin-top: 12px;
+  line-height: 25px;
+}
+button {
+  padding: 5px 15px;
+  margin-top: 4px;
+  background-color: rgb(100, 100, 248);
+  color: white;
+  border: none;
+  border-radius: 4px;
+}

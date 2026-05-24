@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f8;
+            color: #1f2937;
+        }
+
+        header {
+            background-color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #374151;
+            margin-left: 22px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .page-title {
+            padding: 45px 8% 20px;
+        }
+
+        .page-title h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .page-title p {
+            color: #6b7280;
+            font-size: 17px;
+        }
+
+        .toolbar {
+            margin: 10px 8% 30px;
+            background-color: white;
+            padding: 18px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+        }
+
+        .search-box,
+        .category {
+            padding: 12px 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .category {
+            min-width: 180px;
+            background-color: white;
+        }
+
+        .product-list {
+            padding: 0 8% 55px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.07);
+            transition: 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 32px rgba(37, 99, 235, 0.16);
+        }
+
+        .product-image {
+            height: 190px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 54px;
+            font-weight: bold;
+        }
+
+        .blue {
+            background: linear-gradient(135deg, #60a5fa, #2563eb);
+        }
+
+        .green {
+            background: linear-gradient(135deg, #34d399, #059669);
+        }
+
+        .pink {
+            background: linear-gradient(135deg, #fb7185, #e11d48);
+        }
+
+        .yellow {
+            background: linear-gradient(135deg, #facc15, #f97316);
+        }
+
+        .purple {
+            background: linear-gradient(135deg, #a78bfa, #7c3aed);
+        }
+
+        .dark {
+            background: linear-gradient(135deg, #64748b, #111827);
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product-info h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            color: #6b7280;
+            line-height: 1.5;
+            margin-bottom: 14px;
+        }
+
+        .product-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #111827;
+        }
+
+        .btn {
+            border: none;
+            background-color: #2563eb;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        footer {
+            text-align: center;
+            background-color: white;
+            padding: 22px;
+            color: #6b7280;
+        }
+
+        @media (max-width: 1100px) {
+            .product-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 800px) {
+            header {
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .toolbar {
+                flex-direction: column;
+            }
+
+            .search-box,
+            .category {
+                max-width: none;
+                width: 100%;
+            }
+
+            .product-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .page-title h1 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .product-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">TechStore</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Deals</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="page-title">
+        <h1>Product List</h1>
+        <p>Browse our latest tech products and choose your favorite item.</p>
+    </section>
+
+    <section class="toolbar">
+        <input class="search-box" type="text" placeholder="Search product">
+        <select class="category">
+            <option>All Categories</option>
+            <option>Headphones</option>
+            <option>Watches</option>
+            <option>Speakers</option>
+            <option>Accessories</option>
+        </select>
+    </section>
+
+    <main class="product-list">
+        <div class="product-card">
+            <div class="product-image blue">HP</div>
+            <div class="product-info">
+                <h3>Wireless Headphones</h3>
+                <p>Comfortable headphones with clear sound and long battery life.</p>
+                <div class="product-bottom">
+                    <span class="price">$59</span>
+                    <button class="btn">Buy</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image green">SW</div>
+            <div class="product-info">
+                <h3>Smart Watch</h3>
+                <p>Track your activity, time, messages, and daily health goals.</p>
+                <div class="product-bottom">
+                    <span class="price">$89</span>
+                    <button class="btn">Buy</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image pink">SP</div>
+            <div class="product-info">
+                <h3>Mini Speaker</h3>
+                <p>Portable speaker with strong bass for music anywhere.</p>
+                <div class="product-bottom">
+                    <span class="price">$35</span>
+                    <button class="btn">Buy</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image yellow">KB</div>
+            <div class="product-info">
+                <h3>Gaming Keyboard</h3>
+                <p>Fast keyboard with bright keys and a smooth typing feel.</p>
+                <div class="product-bottom">
+                    <span class="price">$49</span>
+                    <button class="btn">Buy</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image purple">MS</div>
+            <div class="product-info">
+                <h3>Wireless Mouse</h3>
+                <p>Lightweight mouse with smooth control for work and games.</p>
+                <div class="product-bottom">
+                    <span class="price">$25</span>
+                    <button class="btn">Buy</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image dark">CH</div>
+            <div class="product-info">
+                <h3>USB-C Charger</h3>
+                <p>Compact fast charger for phones, tablets, and laptops.</p>
+                <div class="product-bottom">
+                    <span class="price">$29</span>
+                    <button class="btn">Buy</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>(c) 2026 TechStore. All rights reserved.</p>
+    </footer>
+</body>
+</html>

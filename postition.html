@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .cont{
+        width: 700px;
+        height: 500px;
+        background-color: aqua;
+    }
+    .box{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        position: sticky;
+        top: 10px;
+        z-index: 1;
+    }
+    .box2{
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+        position: relative;
+        z-index: 2;
+        overflow: scroll;
+    }
+    body{
+        height: 200vh;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="cont">
+        <div class="box"></div>
+        <div class="box2">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi dicta quas dolorem maiores doloremque. Harum, vitae ducimus? Voluptatem nostrum impedit nam cumque? Aliquam corporis porro odit suscipit totam consequuntur accusamus!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi dicta quas dolorem maiores doloremque. Harum, vitae ducimus? Voluptatem nostrum impedit nam cumque? Aliquam corporis porro odit suscipit totam consequuntur accusamus!</p>
+        </div>
+    </div>
+    <h1 style="visibility: hidden;">hello</h1>
+    <h1 style="display: none;">hello</h1>
+</body>
+</html>
