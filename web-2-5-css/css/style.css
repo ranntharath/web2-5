@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 100px;
+    border-bottom: 1px solid rgb(209, 209, 209);
+}
+header ul{
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+    justify-content: center;
+    align-content: center;
+}
+header a{
+    color: gray;
+    text-decoration: none;
+    font-weight: 500;
+}
+.after-header{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid rgb(209, 209, 209);
+}
+.after-header img{
+    width: 30px;
+}
+.search-cont {
+    border: 1px solid gray;
+    width: 800px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 10px;
+    
+    
+}
+.search-cont input{
+    border: none;
+    padding: 0 5px;
+}
+.search-cont input:focus{
+    outline: none;
+}
+.search-cont button{
+    border: none;
+    border-right: 1px solid gray;
+    padding: 0 10px;
+    background-color: white;
+}
+.category-section .card{
+    text-align: center;
+    line-height: 30px;
+    font-weight: 600;
+    color: rgb(98, 98, 98);
+}
+.category-section{
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+.product-title{
+    display: flex;
+    justify-content: space-between;
+}
+.product-title .left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.product-title .left img{
+    width: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+.product-title .left .hour{
+    padding: 4px;
+    border-radius: 50%;
+    color: white;
+    background-color: rgb(213, 46, 74);
+}
