@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      :root {
+        --primary-color: red;
+      }
+      h3 {
+        color: var(--primary-color) !important;
+      }
+      h3 {
+        color: blue;
+      }
+      .test {
+        background-color: var(--primary-color);
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body class="container">
+    <!-- color -->
+    <h2 class="text-danger  bg-secondary">Hello</h2>
+    <h1 class="text-warning bg-danger my-5 mx-5">hello</h1>
+    <h1 class="text-info bg-success py-4">hello</h1>
+
+    <p
+      class="fs-1 fw-bold text-center text-uppercase text-decoration-underline"
+    >
+      typography
+    </p>
+
+    <!-- button -->
+    <button class="btn btn-danger btn-sm">Add to card</button>
+    <button class="btn btn-info btn-sm">Edit</button>
+    <button type="button" class="btn btn-outline-danger btn-sm" disabled>
+      Primary button
+    </button>
+
+    <h3 class="mt-2">importance</h3>
+    <!-- border -->
+    <div class="w-25 mt-2 test border border-3 border-warning rounded-5"></div>
+    <div class="w-25 mt-2 test border-top border-4 border-warning"></div>
+    <div class="w-25 mt-2 test border-bottom border-4 border-warning"></div>
+
+
+    <!-- flexbox -->
+     <div class="w-100 bg-danger d-flex justify-content-center align-items-center gap-3" style="height: 500px;">
+          <div style="width: 100px; height: 100px;" class="bg-info">1</div>
+          <div style="width: 100px; height: 100px;" class="bg-info">2</div>
+          <div style="width: 100px; height: 100px;" class="bg-info">3</div>
+          <div style="width: 100px; height: 100px;" class="bg-info">4</div>
+     </div>
+
+     <!-- column -->
+      <div class="mt-5 row mb-5">
+        <div class="col-12 col-md-6 col-lg-3 bg-danger ">1</div>
+        <div class="col-12 col-md-6 col-lg-3 bg-info">2</div>
+        <div class="col-12 col-md-6 col-lg-3 bg-secondary">3</div>
+        <div class="col-12 col-md-6 col-lg-3  bg-success">4</div>
+      </div>
+
+  </body>
+</html>

@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="container py-5">
+    <div id="banner1" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            height="500px"
+            src="../images/dog.png"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            height="500px"
+            src="../cat.jpg"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            height="500px"
+            src="http://127.0.0.1:8000/media/banners/Gemini_Generated_Image_3ifxy53ifxy53ifx.png"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#banner1"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#banner1"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <table class="table text-center table-bordered table-hover">
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>email</th>
+        <th>role</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>dara</td>
+        <td>dara@gmail.com</td>
+        <td>user</td>
+        <td>
+          <button class="btn btn-info btn-sm">Edit</button>
+          <button class="btn btn-danger btn-sm">Delete</button>
+        </td>
+      </tr>
+    </table>
+
+    <div class="btn-group">
+      <button class="btn btn-primary btn-sm">first</button>
+      <button class="btn btn-primary btn-sm">middle</button>
+      <button class="btn btn-primary btn-sm">next</button>
+    </div>
+
+    <form class="btn-group">
+      <input class="btn-check" id="male" type="radio" name="gender" />
+      <label class="btn btn-outline-primary" for="male">Male</label>
+
+      <input class="btn-check" id="female" type="radio" name="gender" />
+      <label class="btn btn-outline-primary" for="female">Female</label>
+
+      <input class="btn-check" id="other" type="radio" name="gender" />
+      <label class="btn btn-outline-primary" for="other">Other</label>
+    </form>
+
+    <div id="banner2" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            height="500px"
+            src="../images/dog.png"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            height="500px"
+            src="../cat.jpg"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            height="500px"
+            src="http://127.0.0.1:8000/media/banners/Gemini_Generated_Image_3ifxy53ifxy53ifx.png"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#banner2"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#banner2"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div>
+      <a
+        href="#collapseExample"
+        data-bs-toggle="collapse"
+        class="btn btn-primary"
+        >open message</a
+      >
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          Some placeholder content for the collapse component. This panel is
+          hidden by default but revealed when the user activates the relevant
+          trigger.
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+        dropdown
+      </button>
+      <ul class="dropdown-menu">
+        <li class="dropdown-item">Action</li>
+        <li class="dropdown-item">Another action</li>
+        <li class="dropdown-item">Something else here</li>
+      </ul>
+    </div>
+
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#modal1"
+    >
+      Launch demo modal
+    </button>
+    <!-- modal -->
+    <div
+      class="modal fade"
+      id="modal1"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Register</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="d-flex flex-column gap-3">
+              <div>
+                <label for="username" class="form-label">Username</label>
+                <input
+                  class="form-control"
+                  id="username"
+                  type="text"
+                  placeholder="e.g. jonh"
+                />
+              </div>
+
+              <div>
+                <label for="gender" class="form-label">Gender</label>
+                <select id="gender" class="form-select">
+                  <option value="" disabled selected>Select your gender</option>
+                  <option value="">male</option>
+                  <option value="">female</option>
+                  <option value="">other</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  placeholder="example@gmail.com"
+                />
+              </div>
+
+              <div>
+                <label for="password" class="form-label">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  placeholder="password"
+                />
+              </div>
+
+              <div>
+                <label for="cfpassword" class="form-label"
+                  >Confirm Password</label
+                >
+                <input
+                  type="password"
+                  id="cfpassword"
+                  class="form-control"
+                  placeholder="Confirm password"
+                />
+              </div>
+
+              <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" id="remember" />
+                <label for="remember" class="form-check-label"
+                  >Remeber me</label
+                >
+              </div>
+
+              <button class="btn btn-primary">Regsiter</button>
+              <p class="text-secondary text-center">
+                Already have an account ? <a href="#">login</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
