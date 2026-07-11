@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      * {
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -104,13 +104,19 @@
       button:hover {
         background: #1d4ed8;
       }
-    </style>
-  </head>
-  <body>
-    <div id="card">
-     
-    </div>
+      #card-cont{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap        : 20px;
+      }
+  </style>
+</head>
+<body>
 
-  </body>
-  <script src="object.js"></script>
+  <div  id="card-cont">
+    
+  </div>
+
+</body>
+<script src="productList.js"></script>
 </html>
