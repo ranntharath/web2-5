@@ -12,7 +12,7 @@ submitBtn.addEventListener("click", function (e) {
   const cfValue = cf.value;
 
   tableBody.innerHTML = `
-  <tr>
+            <tr>
                 <td>${emailValue}</td>
                 <td>${passwordValue}</td>
                 <td>${cfValue}</td>

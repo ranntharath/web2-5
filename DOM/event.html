@@ -12,33 +12,125 @@
 
     <form class="w-50 mx-auto bg-info p-4">
         <h1>Register</h1>
+
+        <label for="code">Code</label>
+        <input class="form-control" id="code" type="number">
         
-        <label class="form-label" for="email">Email</label>
-        <input  class="form-control" id="email"  type="email">
+        <label class="form-label" for="name">Name</label>
+        <input  class="form-control" id="name"  type="text">
 
-        <label class="form-label" for="password">Password</label>
-        <input type="password" id="password" class="form-control">
+        <label class="form-label" for="price">Price</label>
+        <input type="number" id="price" class="form-control">
 
-        <label class="form-label" for="confirm-password">Confirm Password</label>
-        <input type="password" id="confirm-password" class="form-control">
+        <label class="form-label" for="stock">Stock</label>
+        <input type="number" id="stock" class="form-control">
 
-        <button id="sumitBtn" type="submit" class="btn btn-primary mt-3 w-100">Register</button>
+        <button id="add" type="submit" class="btn btn-primary mt-3 w-100">add</button>
         
     </form>
 
     <table class="table w-50 m-auto mt-5 table-bordered">
         <thead>
             <tr>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Confirm Password</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody id="table-body">
+            
         
         </tbody>
     </table>
     
 </body>
-<script src="event.js"></script>
+<script>
+    const code = document.getElementById("code");
+    const name = document.getElementById("name");
+    const price = document.getElementById("price");
+    const stock = document.getElementById("stock");
+
+    const addBtn = document.getElementById("add");
+    const tableBody = document.getElementById("table-body")
+
+    
+
+
+    const products = []
+
+    addBtn.addEventListener("click", function (e) {
+        
+        e.preventDefault();
+
+        const codeValue = code.value;
+        const nameValue = name.value;
+        const priceValue = price.value;
+        const stockValue = stock.value;
+
+        const product = {
+            code: codeValue,
+            name: nameValue,
+            price: priceValue,
+            stock: stockValue
+        }
+
+        products.push(product);
+
+        let tableRows = products.map((p) => {
+            return  `
+                <tr>
+
+                    <td>${p.code}</td>
+                    <td>${p.name}</td>
+                    <td>${p.price}</td>
+                    <td>${p.stock}</td>
+                    <td>
+                        <button data-code="${p.code}" onclick="deleteProduct(this)" class="btn btn-danger btn-sm delete-btn">Delete</button>
+                        <button  class="btn btn-warning btn-sm">Edit</button>
+                    </td>
+                    
+                </tr>
+            `
+        })
+        tableBody.innerHTML = tableRows.join("")
+
+        
+
+    });
+    function deleteProduct(e) {
+        
+        console.log(e)
+       const deleteCode = e.getAttribute("data-code");
+        
+       const deleteIndex = products.findIndex(p => p.code === deleteCode);
+       products.splice(deleteIndex, 1);
+
+
+       let tableRows = products.map((p) => {
+            return  `
+                <tr>
+
+                    <td>${p.code}</td>
+                    <td>${p.name}</td>
+                    <td>${p.price}</td>
+                    <td>${p.stock}</td>
+                    <td>
+                        <button data-code="${p.code}" onclick="deleteProduct(this)" class="btn btn-danger btn-sm delete-btn">Delete</button>
+                        <button  class="btn btn-warning btn-sm">Edit</button>
+                    </td>
+                    
+                </tr>
+            `
+        })
+        tableBody.innerHTML = tableRows.join("")
+
+
+    }
+    
+    
+
+
+</script>
 </html>

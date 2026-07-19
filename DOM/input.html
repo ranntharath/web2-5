@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <form class="w-50 mx-auto bg-info p-4">
+        <h1>Register</h1>
+        
+        <label class="form-label" for="email">Email</label>
+        <input name="email" class="form-control input" id="email"  type="email" >
+
+        <label class="form-label" for="password">Password</label>
+        <input name="password" type="password" id="password" class="form-control input">
+
+        <label class="form-label" for="confirm-password">Confirm Password</label>
+        <input name="confirmPassword" type="password" id="confirm-password" class="form-control input">
+
+        <button id="sumitBtn" type="submit" class="btn btn-primary mt-3 w-100">Register</button>
+        
+    </form>
+    
+</body>
+<script>
+    
+    const allInputs = document.querySelectorAll(".input")
+
+    const user = {
+        email: "",
+        password: "",
+        confirmPassword: ""
+    }
+    allInputs.forEach((i)=>{
+        i.addEventListener("input",(e)=>{
+            const name = e.target.name;
+            const value = e.target.value;
+            // user['password'] = "value"
+            user[name] = value; 
+            console.log(user)
+        }) 
+    })
+
+</script>
+</html>
