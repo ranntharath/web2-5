@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -26,6 +26,8 @@
         <input type="number" id="stock" class="form-control">
 
         <button id="add" type="submit" class="btn btn-primary mt-3 w-100">add</button>
+        <button id="update" type="button" class="btn btn-success mt-3 w-100">Update</button>
+
         
     </form>
 
@@ -53,21 +55,26 @@
     const stock = document.getElementById("stock");
 
     const addBtn = document.getElementById("add");
+    const updateBtn = document.getElementById("update");
     const tableBody = document.getElementById("table-body")
 
     
-
+    let codeToEdit = null
 
     const products = []
 
     addBtn.addEventListener("click", function (e) {
-        
         e.preventDefault();
 
         const codeValue = code.value;
         const nameValue = name.value;
         const priceValue = price.value;
         const stockValue = stock.value;
+
+        if (codeValue == "" || nameValue == "" || priceValue == "" || stockValue == "") {
+            alert("Please fill all fields");
+            return;
+        }
 
         const product = {
             code: codeValue,
@@ -88,20 +95,23 @@
                     <td>${p.stock}</td>
                     <td>
                         <button data-code="${p.code}" onclick="deleteProduct(this)" class="btn btn-danger btn-sm delete-btn">Delete</button>
-                        <button  class="btn btn-warning btn-sm">Edit</button>
+                        <button data-code="${p.code}" onclick="editProduct(this)" class="btn btn-warning btn-sm">Edit</button>
                     </td>
                     
                 </tr>
             `
         })
         tableBody.innerHTML = tableRows.join("")
+        code.value = ""
+        name.value = ""
+        price.value = ""
+        stock.value = ""
 
         
 
     });
     function deleteProduct(e) {
         
-        console.log(e)
        const deleteCode = e.getAttribute("data-code");
         
        const deleteIndex = products.findIndex(p => p.code === deleteCode);
@@ -118,7 +128,7 @@
                     <td>${p.stock}</td>
                     <td>
                         <button data-code="${p.code}" onclick="deleteProduct(this)" class="btn btn-danger btn-sm delete-btn">Delete</button>
-                        <button  class="btn btn-warning btn-sm">Edit</button>
+                        <button data-code="${p.code}" onclick="editProduct(this)" class="btn btn-warning btn-sm">Edit</button>
                     </td>
                     
                 </tr>
@@ -126,11 +136,70 @@
         })
         tableBody.innerHTML = tableRows.join("")
 
-
     }
-    
-    
 
+    function editProduct(e){
+        const editCode =  e.getAttribute("data-code");
+        console.log(editCode);
+
+        const productToEdit = products.find(p => p.code === editCode);
+        
+        code.value = productToEdit.code;
+        name.value = productToEdit.name;
+        price.value = productToEdit.price;
+        stock.value = productToEdit.stock;
+
+        codeToEdit = editCode;
+    }
+    updateBtn.addEventListener("click", function(e){
+
+        if(codeToEdit === null) return;
+
+        const editCode = code.value;
+        const editName = name.value;
+        const editPrice = price.value;
+        const editStock = stock.value;
+
+        if (editCode == "" || editName == "" || editPrice == "" || editStock == "") {
+            alert("Please fill all fields");
+            return;
+        }
+        
+        products.forEach( p=>{
+            if(p.code == codeToEdit){
+                
+                p.code = editCode;
+                p.name = editName;
+                p.price = editPrice;
+                p.stock = editStock;
+            }
+        })
+
+        codeToEdit = null;
+        let tableRows = products.map((p) => {
+            return  `
+                <tr>
+
+                    <td>${p.code}</td>
+                    <td>${p.name}</td>
+                    <td>${p.price}</td>
+                    <td>${p.stock}</td>
+                    <td>
+                        <button data-code="${p.code}" onclick="deleteProduct(this)" class="btn btn-danger btn-sm delete-btn">Delete</button>
+                        <button data-code="${p.code}" onclick="editProduct(this)" class="btn btn-warning btn-sm">Edit</button>
+                    </td>
+                    
+                </tr>
+            `
+        })
+        tableBody.innerHTML = tableRows.join("")
+
+        code.value = ""
+        name.value = ""
+        price.value = ""
+        stock.value = ""
+    })
+    
 
 </script>
 </html>
