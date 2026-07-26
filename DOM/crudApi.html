@@ -40,6 +40,7 @@
 
     </table>
     
+    
 </body>
 
 <script>
@@ -50,6 +51,7 @@
 
     const productList = document.getElementById("product-list")
 
+    getAllProducts()
 
     btn.addEventListener("click", createNewProduct)
 
@@ -72,7 +74,8 @@
         const data = await res.json()
         getAllProducts()
     }
-    
+
+
     async function getAllProducts(){
         const res = await fetch("https://exchanges-diego-prospect-facing.trycloudflare.com/api/products/")
         const data = await res.json()
@@ -84,17 +87,25 @@
                 <td>${e.price}</td>
                 <td>${e.stock}</td>
                 <td>
-                    <button class="btn btn-danger">Delete</button>
+                    <button class="btn btn-danger" onclick="deleteProduct(${e.id})">Delete</button>
                     <button class="btn btn-warning">Edit</button>
                 </td>
             </tr>
             `
-            
         })
         
     }
-    getAllProducts()
+    
 
+        
+    async function deleteProduct(id){
+        await fetch (`https://exchanges-diego-prospect-facing.trycloudflare.com/api/products/${id}/`,{
+            method: "DELETE"
+        })
+        location.reload()
+    }
+
+    
 
 
 
