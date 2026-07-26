@@ -1,26 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <div id="container">
-        container 1
-    </div>
-    <div  id="container2">
-        container 2
-    </div>
+    <style>
+      .card {
+        width: 300px;
+        height: 400px;
+        border: 1px solid black;
+        margin: 20px;
+        padding: 10px;
+      }
+      img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+      #card-cont {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="card-cont"></div>
+  </body>
 
-    <div  id="attribute" name="attr">
-        hello attribute
-    </div>
+  <script type="module">
+    // const cardCont = document.getElementById("card-cont")
 
-    <input value="hello" id="name" type="text" placeholder="name">
-    
-</body>
-<script src="index.js">
-</script>
+    // fetch("https://fakestoreapi.com/products")
+    // .then(res => res.json())
+    // .then(data => {
+    //     data.forEach((e)=>{
+    //         cardCont.innerHTML += `
+    //         <div class="card">
+    //             <div>
+    //                 <img src="${e.image}" alt="">
+    //             </div>
+    //             <div>
+    //                 <h3>${e.title}</h3>
+    //                 <p>$${e.price}</p>
+    //             </div>
+
+    //         </div>
+    //     `
+    // })
+
+    // })
+    // .catch(err => console.log(err))
+
+    // async / await
+
+    async function getAllProduct() {
+      const res = await fetch("https://fakestoreapi.com/products");
+      const data = await res.json();
+      return data;
+    }
+
+    const products = await getAllProduct();
+
+    async function addNewProduct() {
+      const newProduct = {
+        id: 21,
+        title: "test product",
+        price: 13.5,
+        description: "lorem ipsum set",
+        image: "https://i.pravatar.cc",
+        category: "electronic",
+      };
+
+      const res = await fetch("https://fakestoreapi.com/products", {
+        method: "POST",
+
+        body: JSON.stringify(newProduct),
+
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await res.json();
+      console.log(data);
+    }
+
+    addNewProduct();
+  </script>
 </html>
-

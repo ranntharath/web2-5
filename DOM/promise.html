@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+
+  <script type="module">
+    // Promise : Object that represents the future result
+    // resolve : when the promise is successful
+    // reject : when the promise is failed
+
+    function getData() {
+      const sucess = false;
+      const result = new Promise((resolve, reject) => {
+        if (sucess) {
+          resolve("Data fetched successfully");
+        } else {
+          reject("Failed to fetch data");
+        }
+      });
+      return result;
+    }
+        
+    async function getDataResult() {
+      try {
+        const data = await getData();
+        console.log(data);
+      } catch (err) {
+        console.log("jol knong catch");
+        console.log("error : ", err);
+      }
+    }
+    getDataResult();
+
+  </script>
+</html>

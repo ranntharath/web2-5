@@ -1,21 +1,19 @@
-const email = document.getElementById("email");
-const password = document.getElementById("password");
-const cf = document.getElementById("confirm-password");
-const submitBtn = document.getElementById("sumitBtn");
-const tableBody = document.getElementById("table-body")
+// Synchronous
+console.log("task 1")
+console.log("task 2")
+console.log("task 3")
+
+// Asynchronous 
+console.log("====================")
+console.log("task 1")
+
+setTimeout(()=>{
+  console.log("task 2")
+}, 3000) // 3000ms = 3s
+
+console.log("task 3")
 
 
-submitBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  const emailValue = email.value;
-  const passwordValue = password.value;
-  const cfValue = cf.value;
-
-  tableBody.innerHTML = `
-            <tr>
-                <td>${emailValue}</td>
-                <td>${passwordValue}</td>
-                <td>${cfValue}</td>
-            </tr>
-  `
-});
+// API = Application Programming Interface
+// Frontend : UI 
+// backend/Server : 
