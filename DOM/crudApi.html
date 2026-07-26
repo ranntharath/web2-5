@@ -22,6 +22,23 @@
         <button id="btn-submit" type="submit" class="btn btn-primary mt-3">Submit</button>
 
     </form>
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>price</th>
+                <th>stock</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody id="product-list">
+            
+
+        </tbody>
+        
+
+    </table>
     
 </body>
 
@@ -30,6 +47,8 @@
     const productName = document.getElementById("product-name")
     const productPrice = document.getElementById("price")
     const productStock = document.getElementById("stock")
+
+    const productList = document.getElementById("product-list")
 
 
     btn.addEventListener("click", createNewProduct)
@@ -51,17 +70,29 @@
             }
         })
         const data = await res.json()
-        console.log(data)
+        getAllProducts()
     }
     
-
     async function getAllProducts(){
         const res = await fetch("https://exchanges-diego-prospect-facing.trycloudflare.com/api/products/")
         const data = await res.json()
-        console.log(data)
+        data.products.forEach(e=>{
+            productList.innerHTML += `
+            <tr>
+                <td>${e.id}</td>
+                <td>${e.name}</td>
+                <td>${e.price}</td>
+                <td>${e.stock}</td>
+                <td>
+                    <button class="btn btn-danger">Delete</button>
+                    <button class="btn btn-warning">Edit</button>
+                </td>
+            </tr>
+            `
+            
+        })
+        
     }
-
-
     getAllProducts()
 
 
