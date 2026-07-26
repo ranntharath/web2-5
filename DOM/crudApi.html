@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <form class="container mt-5" id="product-form" method="POST">
+        <label for="product-name">Product Name</label>
+        <input class="form-control" type="text" id="product-name" name="product-name">
+
+        <label for="price">Price</label>
+        <input class="form-control" type="number" id="price" name="price">   
+
+        <label for="stock">Stock</label>
+        <input class="form-control" type="number" id="stock" name="stock">
+
+        <button id="btn-submit" type="submit" class="btn btn-primary mt-3">Submit</button>
+
+    </form>
+    
+</body>
+
+<script>
+    const btn = document.getElementById("btn-submit")
+    const productName = document.getElementById("product-name")
+    const productPrice = document.getElementById("price")
+    const productStock = document.getElementById("stock")
+
+
+    btn.addEventListener("click", createNewProduct)
+
+    async function createNewProduct(e){
+        e.preventDefault()
+
+        const product = {
+            name: productName.value ,
+            price: productPrice.value,
+            stock: productStock.value
+        }
+        
+        const res = await fetch("https://exchanges-diego-prospect-facing.trycloudflare.com/api/products/",{
+            method: "POST",
+            body: JSON.stringify(product),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        const data = await res.json()
+        console.log(data)
+    }
+    
+
+    async function getAllProducts(){
+        const res = await fetch("http://127.0.0.1:8000/api/products/")
+        const data = await res.json()
+        console.log(data)
+    }
+
+
+    getAllProducts()
+
+
+
+
+</script>
+</html>
